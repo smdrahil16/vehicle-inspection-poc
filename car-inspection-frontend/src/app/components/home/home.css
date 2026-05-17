@@ -1,0 +1,29 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.welcome-card {
+    width: 500px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 0 15px lightgray;
+}
+
+.icon {
+    font-size: 80px;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+p {
+    color: gray;
+    font-size: 18px;
+    line-height: 1.6;
+}

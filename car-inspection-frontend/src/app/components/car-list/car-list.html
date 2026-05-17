@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <h2>
+        Retrieve Vehicle Inspection
+    </h2>
+
+    <div class="search-box">
+
+        <input
+                type="text"
+                placeholder="Enter VIN Number"
+                [(ngModel)]="vinNumber">
+
+        <button
+                (click)="searchCar()">
+
+            Search
+        </button>
+
+    </div>
+
+    <div
+            class="result-card"
+            *ngIf="searchedCar">
+
+        <img
+                [src]="searchedCar.imagePath"
+                alt="car-image">
+
+        <h3>
+            {{ searchedCar.carModel }}
+        </h3>
+
+        <p>
+            <strong>VIN:</strong>
+            {{ searchedCar.vinNumber }}
+        </p>
+
+        <p>
+            <strong>Car Number:</strong>
+            {{ searchedCar.carNumber }}
+        </p>
+
+        <p>
+            <strong>Inspection:</strong>
+            {{ searchedCar.inspectionType }}
+        </p>
+
+        <p>
+            <strong>Comments:</strong>
+            {{ searchedCar.comments }}
+        </p>
+
+    </div>
+
+    <div class="view-all-section">
+
+        <button
+                class="view-button"
+                (click)="toggleAllCars()">
+
+            {{
+            showAllCars
+            ? 'Hide All Inspections'
+            : 'View All Inspections'
+            }}
+
+        </button>
+
+    </div>
+
+    <div *ngIf="showAllCars">
+
+        <h2>
+            All Inspections
+        </h2>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>VIN</th>
+                <th>Car Number</th>
+                <th>Model</th>
+                <th>Inspection</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr *ngFor="let car of cars">
+
+                <td>
+                    {{ car.id }}
+                </td>
+
+                <td>
+                    {{ car.vinNumber }}
+                </td>
+
+                <td>
+                    {{ car.carNumber }}
+                </td>
+
+                <td>
+                    {{ car.carModel }}
+                </td>
+
+                <td>
+                    {{ car.inspectionType }}
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

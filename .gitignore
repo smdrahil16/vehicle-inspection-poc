@@ -1,0 +1,14 @@
+# Angular
+car-inspection-frontend/node_modules/
+car-inspection-frontend/.angular/
+
+# Spring Boot
+car-inspection-backend/target/
+car-inspection-backend/uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
