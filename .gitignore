@@ -1,3 +1,21 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfvars
+
+# IntelliJ
+.idea/
+*.iml
+
+# Build
+target/
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Angular
 car-inspection-frontend/node_modules/
 car-inspection-frontend/.angular/

@@ -77,9 +77,7 @@ public class CarService {
                     );
                     dto.setComments(car.getComments());
                     dto.setImagePath(
-                            "http://localhost:8080/"
-                                    + car.getImagePath()
-                                    .replace("\\", "/")
+                            car.getImagePath()
                     );
                     dto.setCreatedAt(car.getCreatedAt());
 
@@ -128,9 +126,7 @@ public class CarService {
         );
 
         dto.setImagePath(
-                "http://localhost:8080/"
-                        + car.getImagePath()
-                        .replace("\\", "/")
+                car.getImagePath()
         );
 
         dto.setCreatedAt(
