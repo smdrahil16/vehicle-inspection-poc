@@ -47,6 +47,11 @@ public class CarController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "NEW DEPLOYMENT WORKING";
+    }
+
     @GetMapping("/vin/{vinNumber}")
     public ResponseEntity<
             CarResponseDto>
