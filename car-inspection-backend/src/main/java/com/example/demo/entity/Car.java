@@ -10,9 +10,9 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String vinNumber;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String carNumber;
     @Column(nullable = false)
     private String carModel;
