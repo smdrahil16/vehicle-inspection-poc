@@ -30,6 +30,12 @@ public class CarService {
             String comments,
             MultipartFile photo
     ) throws IOException{
+        if (carRepository.existsByVinNumber(vinNumber)) {
+
+            throw new RuntimeException(
+                    "Car with this VIN already exists"
+            );
+        }
 
         String imagePath = fileStorageService.saveFile(photo);
 
