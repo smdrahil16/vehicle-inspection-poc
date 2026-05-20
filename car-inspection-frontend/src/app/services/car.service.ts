@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CarService {
 
   private baseUrl =
-    'https://ca-8bd6ff4508d04e199bda6738c8caf0c9.ecs.ap-south-1.on.aws';
+    'https://ca-8bd6ff4508d04e199bda6738c8caf0c9.ecs.ap-south-1.on.aws/api/cars';
 
   constructor(
     private http: HttpClient
