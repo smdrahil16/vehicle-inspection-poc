@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cars")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://rahil-car-inspection-ui.s3-website.ap-south-1.amazonaws.com")
 public class CarController {
 
     private CarService carService;
