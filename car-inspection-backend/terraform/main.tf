@@ -65,7 +65,39 @@ resource "aws_db_instance" "postgres_db" {
 
   vpc_security_group_ids = []
 
+  lifecycle {
+    ignore_changes = [
+      vpc_security_group_ids
+    ]
+  }
+
   tags = {
     Name = "Car Inspection PostgreSQL DB"
+  }
+}
+
+# Backend ECR Repository
+resource "aws_ecr_repository" "backend_repo" {
+  name = "car-inspection-backend"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  tags = {
+    Name = "Backend ECR"
+  }
+}
+
+# Frontend ECR Repository
+resource "aws_ecr_repository" "frontend_repo" {
+  name = "car-inspection-frontend"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  tags = {
+    Name = "Frontend ECR"
   }
 }

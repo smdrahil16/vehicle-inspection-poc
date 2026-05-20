@@ -1,0 +1,51 @@
+name: Build and Push Docker Images to ECR
+
+on:
+  push:
+    branches:
+      - aws-migration
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # Backend Build
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t car-inspection-backend ./car-inspection-backend
+
+      - name: Tag Backend Docker Image
+        run: |
+          docker tag car-inspection-backend:latest 188046728150.dkr.ecr.ap-south-1.amazonaws.com/car-inspection-backend:latest
+
+      - name: Push Backend Docker Image
+        run: |
+          docker push 188046728150.dkr.ecr.ap-south-1.amazonaws.com/car-inspection-backend:latest
+
+      # Frontend Build
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -t car-inspection-frontend ./car-inspection-frontend
+
+      - name: Tag Frontend Docker Image
+        run: |
+          docker tag car-inspection-frontend:latest 188046728150.dkr.ecr.ap-south-1.amazonaws.com/car-inspection-frontend:latest
+
+      - name: Push Frontend Docker Image
+        run: |
+          docker push 188046728150.dkr.ecr.ap-south-1.amazonaws.com/car-inspection-frontend:latest
