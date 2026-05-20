@@ -13,8 +13,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/cars")
 @CrossOrigin(
-        origins =
-                "http://localhost:4200"
+        origins = {
+                "http://localhost:4200",
+                "http://rahil-car-inspection-ui.s3-website.ap-south-1.amazonaws.com"
+        }
 )
 public class CarController {
 
